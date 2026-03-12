@@ -21,7 +21,7 @@ def link_records(anon_df, aux_df):
     com_cols = list(set(anon_df.columns) & set(aux_df.columns))
     if len(com_cols) == 0:
         print('Warning: No common columsns found for linking.')
-        return pd.DataFrame(columns=['anon_id', 'matched_name'])
+        return pd.DataFrame(columns=['anon_id', 'name'])
     if 'anon_id' in com_cols:
         com_cols.remove('anon_id')
     
@@ -35,6 +35,14 @@ def link_records(anon_df, aux_df):
     match_counts = merge_df['anon_id'].value_counts()
     unique_id = match_counts[match_counts == 1].index
     final_matches = merge_df[merge_df['anon_id'].isin(unique_id)]
+
+    # Print the first few rows to inspect
+    print("Merged DataFrame preview:")
+    print(merge_df.head())
+
+    # Print all column names
+    print("\nColumns in merged DataFrame:")
+    print(merge_df.columns.tolist())
     return final_matches[['anon_id', 'matched_name']]
 
 
