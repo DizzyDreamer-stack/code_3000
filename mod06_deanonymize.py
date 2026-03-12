@@ -19,7 +19,12 @@ def link_records(anon_df, aux_df):
     containing ONLY uniquely matched records.
     """
     com_cols = list(set(anon_df.columns) & set(aux_df.columns))
-    com_cols.remove('anon_id')
+    if len(com_cols) == 0:
+        print('Warning: No common columsns found for linking.')
+        return pd.DataFrame(columns=['anon_id', 'matched_name'])
+    if 'anon_id' in com_cols:
+        com_cols.remove('anon_id')
+    
     merge_df = pd.merge(
         anon_df, 
         aux_df, 
