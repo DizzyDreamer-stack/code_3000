@@ -36,6 +36,7 @@ def link_records(anon_df, aux_df):
     unique_id = match_counts[match_counts == 1].index
     final_matches = merge_df[merge_df['anon_id'].isin(unique_id)]
 
+
     # Print the first few rows to inspect
     print("Merged DataFrame preview:")
     print(merge_df.head())
@@ -43,7 +44,9 @@ def link_records(anon_df, aux_df):
     # Print all column names
     print("\nColumns in merged DataFrame:")
     print(merge_df.columns.tolist())
-    return final_matches[['anon_id', 'name']]
+
+    final_matches = final_matches[['anon_id', 'name']].rename(columns={'name': 'matched_name'})
+    return final_matches[['anon_id', 'matched_name']]
 
 
     
