@@ -33,8 +33,7 @@ def link_records(anon_df, aux_df):
     return final_matches[['anon_id', 'matched_name']]
 
 
-    #raise NotImplementedError
-
+    
 
 def deanonymization_rate(matches_df, anon_df):
     """
