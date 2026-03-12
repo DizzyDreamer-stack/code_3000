@@ -43,7 +43,7 @@ def link_records(anon_df, aux_df):
     # Print all column names
     print("\nColumns in merged DataFrame:")
     print(merge_df.columns.tolist())
-    return final_matches[['anon_id', 'matched_name']]
+    return final_matches[['anon_id', 'name']]
 
 
     
