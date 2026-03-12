@@ -45,4 +45,3 @@ def deanonymization_rate(matches_df, anon_df):
     tot_recs = len(anon_df)
     unique_recs = len(matches_df)
     return unique_recs/tot_recs
-    #raise NotImplementedError
