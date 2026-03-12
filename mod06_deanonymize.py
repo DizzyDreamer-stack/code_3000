@@ -18,7 +18,7 @@ def link_records(anon_df, aux_df):
       anon_id, matched_name
     containing ONLY uniquely matched records.
     """
-    com_cols = list(set(anon_df.columns)&set(aux_df.columns))
+    com_cols = list(set(anon_df.columns) & set(aux_df.columns))
     com_cols.remove('anon_id')
     merge_df = pd.merge(
         anon_df, 
